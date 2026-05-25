@@ -1,0 +1,36 @@
+server:
+  port: 8090
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  datasource:
+    url: jdbc:postgresql://localhost:5432/eventhub
+    username: eventhub_user
+    password: EvenHub2026!
+    driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+      mode: always
+      continue-on-error: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  application:
+    name: eventhub-backend
+
+app:
+  jwt:
+    secret: EventHub2026SecretKeyForJWTTokenGeneration256Bits
+    expiration-ms: 86400000
+  upload:
+    dir: /opt/eventhub/uploads
+    base-url: https://api.eventhubuz.online/uploads
